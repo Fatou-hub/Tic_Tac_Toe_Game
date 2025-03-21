@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightcyan;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Conteneur principal */
+.container {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Grille de jeu */
+.game {
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5vmin;
+    justify-content: center;
+}
+
+/* Cases du jeu */
+.box {
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+    font-size: 8vmin;
+    color: red;
+    background-color: rgb(255, 0, 179);
+    transition: transform 0.2s ease-in-out, background-color 0.3s;
+}
+
+/* Effet au survol */
+.box:hover {
+    background-color: rgb(78, 30, 210);
+    cursor: pointer;
+}
+
+/* Effet d'animation au clic */
+.box:active {
+    transform: scale(0.9);
+}
+
+/* Animation des cases gagnantes */
+@keyframes winEffect {
+    0% { background-color: yellow; }
+    50% { background-color: lightgreen; }
+    100% { background-color: yellow; }
+}
+
+/* Effet pour les cases gagnantes */
+.win {
+    animation: winEffect 0.5s ease-in-out infinite alternate;
+}
+
+/* Boutons */
+button {
+    padding: 1rem;
+    font-size: 1.25rem;
+    background: #191913;
+    color: white;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.3s;
+}
+
+/* Effet au survol des boutons */
+button:hover {
+    background-color: #333;
+}
+
+/* Effet au clic sur les boutons */
+button:active {
+    transform: scale(0.95);
+}
+
+/* Style spécifique des boutons */
+#reset, #new-btn {
+    margin-top: 1rem;
+}
+
+/* Conteneur du message de victoire */
+.msg-container {
+    height: 30vmin;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Message gagnant */
+#msg {
+    font-size: 6vmin;
+    font-weight: bold;
+    color: darkgreen;
+}
+
+/* Cacher les éléments */
+.hide {
+    display: none;
+}
